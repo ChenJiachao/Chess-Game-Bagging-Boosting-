@@ -144,9 +144,9 @@ Err_Train = np.zeros(n_max)
 Err_Test = np.zeros(n_max)
 indices = 2**np.array(range(0,n_max))
 
-
+# when depth = 20, it achieves highest testing accuracy
 for i in range(n_max):
-    dtc = DecisionTreeClassifier(criterion = 'entropy', max_depth= 50)
+    dtc = DecisionTreeClassifier(criterion = 'entropy', max_depth= 20)
     bc = BaggingClassifier(base_estimator = dtc ,n_estimators =10)
     clf = AdaBoostClassifier(base_estimator = bc,n_estimators =indices[i] )
     
